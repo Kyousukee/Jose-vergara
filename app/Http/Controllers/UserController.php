@@ -16,6 +16,8 @@ class UserController extends Controller
     {
         $users = User::all()->toArray();
 
+        rsort($users);
+
         return response()->json($users);
     }
 

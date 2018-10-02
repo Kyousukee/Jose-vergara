@@ -16,6 +16,8 @@ class PostController extends Controller
     {
         $posts = Post::all()->toArray();
 
+        rsort($posts);
+
         return response()->json($posts);
     }
 
