@@ -41,9 +41,9 @@ class PostController extends Controller
                 ]);
  
                 return response()->json($post);
-                
+
         }catch (\Exception $e){
-            return response("Algo salio mal", 501);
+            return response($e, 501);
         }
     }
 
