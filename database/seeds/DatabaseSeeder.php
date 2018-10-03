@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\User;
 use App\Post;
+use App\User;
+use App\Image;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,5 +37,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(Post::class, 10)->create();
+
+        factory(Image::class, 5)->create();
     }
 }
