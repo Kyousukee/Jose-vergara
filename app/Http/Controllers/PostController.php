@@ -30,10 +30,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $input = $request->all();
          try{
-            if ($request->input('image')) {
+            if ($request->has('image')) {
 
-                foreach($request->input('image') as $key => $value){
+                foreach($request->image as $key => $value){
                     $image = $value;  // your base64 encoded
                     $image = str_replace('data:image/jpeg;base64,', '', $image);
                     $image = str_replace(' ', '+', $image);
