@@ -30,11 +30,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        print_r($request->all());
-         try{
+        echo "<pre>";
+            print_r($request->all());
+        echo "</pre>";
+         /*try{
             if ($request->input('image')) {
-
-
 
                 foreach($request->input('image') as $key => $value){
                     $image = $value;  // your base64 encoded
@@ -46,14 +46,14 @@ class PostController extends Controller
 
 
 
-                /*$post = new Post([
+                $post = new Post([
                     'user_id' => $request->input('user_id'),
                     'image' => $image,
                     'tittle' => $request->input('tittle'), 
                     'description' => $request->input('description'), 
                     'ubication' => $request->input('ubication'), 
 
-                ]);*/
+                ]);
 
             }else{
                 $post = new Post([
@@ -67,7 +67,7 @@ class PostController extends Controller
             //return response()->json('Publicaicon Creada', 500);
         }catch (\Exception $e){
             return response("Algo salio mal", 501);
-        }
+        }*/
     }
 
     /**
