@@ -18,6 +18,6 @@ class Post extends Model
     }
 
     public function images(){
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class,"post_id");
     }
 }
