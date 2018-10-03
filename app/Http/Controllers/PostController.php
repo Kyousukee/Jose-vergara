@@ -14,6 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        header('Access-Control-Allow-Origin: *');
         $posts = Post::all()->toArray();
 
         rsort($posts);
@@ -30,6 +31,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        header('Access-Control-Allow-Origin: *');
         echo "<pre>";
             print_r($request->all());
         echo "</pre>";
