@@ -33,7 +33,7 @@ class PostController extends Controller
          try{
             if ($request->input('image')) {
 
-                foreach($request->image as $key => $value){
+                foreach($request->input('image') as $key => $value){
                     $image = $value;  // your base64 encoded
                     $image = str_replace('data:image/jpeg;base64,', '', $image);
                     $image = str_replace(' ', '+', $image);
