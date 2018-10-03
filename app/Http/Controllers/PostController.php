@@ -14,7 +14,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        header('Access-Control-Allow-Origin: *');
         $posts = Post::all()->toArray();
 
         rsort($posts);
@@ -35,7 +34,7 @@ class PostController extends Controller
         echo "<pre>";
             print_r($request->all());
         echo "</pre>";
-         /*try{
+         try{
             if ($request->input('image')) {
 
                 foreach($request->input('image') as $key => $value){
@@ -69,7 +68,7 @@ class PostController extends Controller
             //return response()->json('Publicaicon Creada', 500);
         }catch (\Exception $e){
             return response("Algo salio mal", 501);
-        }*/
+        }
     }
 
     /**
