@@ -56,7 +56,7 @@ return [
         ],
 
         'images' => [
-            'driver' => 'local',
+            'driver' => 'http://taller.jcloud.cl',
             'root' => public_path('img'),
             'visibility' => 'public',
         ],
