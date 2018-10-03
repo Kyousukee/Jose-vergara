@@ -38,7 +38,6 @@ class PostController extends Controller
                 'ubication' => $request->input('ubication'), 
             ]);
             $post->save();
-            return response()->json('Publicaicon Creada', 500);
         }catch (\Exception $e){
             return response("Algo salio mal", 501);
         }
