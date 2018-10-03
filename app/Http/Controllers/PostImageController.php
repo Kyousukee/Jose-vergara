@@ -21,7 +21,10 @@ class PostImageController extends Controller
         if (!$image) {
             return response()->json('Este post notiene imagenes',403);
         }
-        rsort($image);
+        else
+        {
+            rsort($image);
+        }
 
         return response()->json($image);
 
