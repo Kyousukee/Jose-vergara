@@ -56,10 +56,9 @@ class PostController extends Controller
                     'description' => $request->input('description'), 
                     'ubication' => $request->input('ubication'), 
                 ]);
-            }            
-            //Guardar
+            } 
             $post->save();
-            //return response()->json('Publicacion Creada', 500);
+            //return response()->json('Publicaicon Creada', 500);
         }catch (\Exception $e){
             return response("Algo salio mal", 501);
         }
