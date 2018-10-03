@@ -31,12 +31,10 @@ class PostController extends Controller
     public function store(Request $request)
     {
          try{
-                $post = Post::create([
-                    'user_id' => $request->input('user_id'),
-                    'tittle' => $request->input('tittle'), 
-                    'description' => $request->input('description'), 
-                    'ubication' => $request->input('ubication'), 
-                ]);
+            
+                $campos = $request->all();
+
+                $post = Post::create($campos);
  
                 return response()->json($post);
 
