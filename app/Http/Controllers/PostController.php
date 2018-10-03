@@ -30,14 +30,36 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            $post = new Post([
-                'user_id' => $request->input('user_id'), 
-                'tittle' => $request->input('tittle'), 
-                'description' => $request->input('description'), 
-                'ubication' => $request->input('ubication'), 
-            ]);
+         try{
+            if ($request->input('image')) {
+
+                foreach($request->image as $key => $value){
+                    $image = $value;  // your base64 encoded
+                    $image = str_replace('data:image/jpeg;base64,', '', $image);
+                    $image = str_replace(' ', '+', $image);
+                    $imageName = str_random(10).'.'.'jpeg';                
+                }
+
+                $post = new Post([
+                    'user_id' => $request->input('user_id'),
+                    'image' => $image,
+                    'tittle' => $request->input('tittle'), 
+                    'description' => $request->input('description'), 
+                    'ubication' => $request->input('ubication'), 
+
+                ]);
+
+            }else{
+                $post = new Post([
+                    'user_id' => $request->input('user_id'),
+                    'tittle' => $request->input('tittle'), 
+                    'description' => $request->input('description'), 
+                    'ubication' => $request->input('ubication'), 
+                ]);
+            }            
+            //Guardar
             $post->save();
+            //return response()->json('Publicacion Creada', 500);
         }catch (\Exception $e){
             return response("Algo salio mal", 501);
         }
