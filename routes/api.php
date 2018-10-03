@@ -20,3 +20,5 @@ Route::resource('users', 'UserController', ['only' => [
 Route::resource('posts', 'PostController', ['only' => [
 	'index', 'store', 'show', 'update', 'destroy'
 ]]);
+
+Route::resource('post.images', 'PostImageController', ['only' => ['index', 'store']]);
