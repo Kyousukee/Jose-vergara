@@ -30,8 +30,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        header('Access-Control-Allow-Origin: *');
-
          try{
                 $post = Post::create([
                     'user_id' => $request->input('user_id'),
