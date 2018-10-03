@@ -30,10 +30,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        print_r($request->all());
          try{
             if ($request->input('image')) {
 
-                print_r($request->all());
+
 
                 foreach($request->input('image') as $key => $value){
                     $image = $value;  // your base64 encoded
