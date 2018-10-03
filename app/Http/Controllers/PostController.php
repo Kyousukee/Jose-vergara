@@ -30,25 +30,29 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
          try{
-            if ($request->has('image')) {
+            if ($request->input('image')) {
 
-                foreach($request->image as $key => $value){
+                print_r($request->all());
+
+                foreach($request->input('image') as $key => $value){
                     $image = $value;  // your base64 encoded
                     $image = str_replace('data:image/jpeg;base64,', '', $image);
                     $image = str_replace(' ', '+', $image);
-                    $imageName = str_random(10).'.'.'jpeg';                
+                    $imageName = str_random(10).'.'.'jpeg'; 
+                    \File::put($imageName, base64_decode($image));               
                 }
 
-                $post = new Post([
+
+
+                /*$post = new Post([
                     'user_id' => $request->input('user_id'),
                     'image' => $image,
                     'tittle' => $request->input('tittle'), 
                     'description' => $request->input('description'), 
                     'ubication' => $request->input('ubication'), 
 
-                ]);
+                ]);*/
 
             }else{
                 $post = new Post([
