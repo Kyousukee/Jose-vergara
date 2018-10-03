@@ -31,41 +31,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         header('Access-Control-Allow-Origin: *');
-        echo "<pre>";
-            print_r($request->all());
-        echo "</pre>";
+
          try{
-            if ($request->input('image')) {
-
-                foreach($request->input('image') as $key => $value){
-                    $image = $value;  // your base64 encoded
-                    $image = str_replace('data:image/jpeg;base64,', '', $image);
-                    $image = str_replace(' ', '+', $image);
-                    $imageName = str_random(10).'.'.'jpeg'; 
-                    \File::put($imageName, base64_decode($image));               
-                }
-
-
-
-                $post = new Post([
-                    'user_id' => $request->input('user_id'),
-                    'image' => $image,
-                    'tittle' => $request->input('tittle'), 
-                    'description' => $request->input('description'), 
-                    'ubication' => $request->input('ubication'), 
-
-                ]);
-
-            }else{
-                $post = new Post([
+                $post = Post::create([
                     'user_id' => $request->input('user_id'),
                     'tittle' => $request->input('tittle'), 
                     'description' => $request->input('description'), 
                     'ubication' => $request->input('ubication'), 
                 ]);
-            } 
-            $post->save();
-            //return response()->json('Publicaicon Creada', 500);
+ 
+                return response()->json($post);
+                
         }catch (\Exception $e){
             return response("Algo salio mal", 501);
         }
