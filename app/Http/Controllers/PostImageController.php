@@ -43,8 +43,6 @@ class PostImageController extends Controller
 
         $file = $request->file('tittle');
 
-        dd($file);
-
         $nombre = $file->getClientOriginalName();
 
         $url = public_path('img').'\\'.$nombre;
